@@ -1,7 +1,3 @@
-
-const main = () => {
-  check()
-}
 const check = () => {
   if (!('serviceWorker' in navigator)) {
     throw new Error('No Service Worker support!')
