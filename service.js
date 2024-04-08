@@ -9,3 +9,5 @@ self.addEventListener('activate', async () => {
     console.log('Error', err)
   }
 })
+
+const subscription = await self.registration.pushManager.getSubscription()
