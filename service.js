@@ -8,21 +8,30 @@ const urlB64ToUint8Array = base64String => {
   for (let i = 0; i < rawData.length; ++i) {
     outputArray[i] = rawData.charCodeAt(i)
   }
-  console.log(outputArray)
   return outputArray
-  
 }
-
+// saveSubscription saves the subscription to the backend
+const saveSubscription = async subscription => {
+  const SERVER_URL = 'http://localhost:4000/save-subscription'
+  const response = await fetch(SERVER_URL, {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(subscription),
+  })
+  return response.json()
+}
 self.addEventListener('activate', async () => {
-  // This will be called only once when the service worker is activated.    
-  console.log("SW activated")
+  // This will be called only once when the service worker is activated.
   try {
     const applicationServerKey = urlB64ToUint8Array(
       'BJPNR5HIy3FmJN1-5zc4XXvImuEEelaCgAHeS8ZV8scXnbcCStnCC0Beh4teH34kOSqnzSB3R-C3DRlJhcMLCoQ'
     )
     const options = { applicationServerKey, userVisibleOnly: true }
     const subscription = await self.registration.pushManager.subscribe(options)
-    console.log(JSON.stringify(subscription))
+    const response = await saveSubscription(subscription)
+    console.log(response)
   } catch (err) {
     console.log('Error', err)
   }
