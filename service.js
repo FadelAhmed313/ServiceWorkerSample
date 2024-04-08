@@ -18,7 +18,7 @@ self.addEventListener('activate', async () => {
   console.log("SW activated")
   try {
     const applicationServerKey = urlB64ToUint8Array(
-      'AAAA_OCG7fQ:APA91bEIiceVg1P9RoME0BWqmUPRnaTSsEZIDSd_463JC22mFNZT8QAGMsJkfmVyjnWvSzSx6PWYxS1NLUanR-zU00SoRVdnpcLBx-yUuJVXdZChz7MsGXaVwYlF3D6RFm2BLiyQeHKk'
+      'BJPNR5HIy3FmJN1-5zc4XXvImuEEelaCgAHeS8ZV8scXnbcCStnCC0Beh4teH34kOSqnzSB3R-C3DRlJhcMLCoQ'
     )
     const options = { applicationServerKey, userVisibleOnly: true }
     const subscription = await self.registration.pushManager.subscribe(options)
