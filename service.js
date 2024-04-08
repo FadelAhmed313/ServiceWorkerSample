@@ -20,7 +20,7 @@ const saveSubscription = async subscription => {
     }, 
     body: JSON.stringify(subscription),
   })
-  console.log(SERVER_URL)
+  console.log('Server > ', SERVER_URL)
   return response.json()
 }
 self.addEventListener('activate', async () => {
@@ -32,7 +32,7 @@ self.addEventListener('activate', async () => {
     const options = { applicationServerKey, userVisibleOnly: true }
     const subscription = await self.registration.pushManager.subscribe(options)
     const response = await saveSubscription(subscription)
-    console.log(response)
+    console.log('Response > ', response)
     alert(response)
   } catch (err) {
     console.log('Error', err)
