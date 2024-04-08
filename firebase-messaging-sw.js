@@ -1,7 +1,3 @@
-// firebase-messaging-sw.js
-
-await import('https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js');
-await import('https://www.gstatic.com/firebasejs/9.0.2/firebase-messaging.js');
 
 
 const config = {
