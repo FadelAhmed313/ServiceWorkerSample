@@ -20,6 +20,7 @@ const requestNotificationPermission = async () => {
   if (permission !== 'granted') {
     throw new Error('Permission not granted for Notification')
   }
+  console.log(permission)
 }
 const main = async () => {
   check()
