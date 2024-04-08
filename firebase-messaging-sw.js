@@ -1,7 +1,8 @@
 // firebase-messaging-sw.js
 
-import('https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js');
-import('https://www.gstatic.com/firebasejs/9.0.2/firebase-messaging.js');
+await import('https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js');
+await import('https://www.gstatic.com/firebasejs/9.0.2/firebase-messaging.js');
+
 
 const config = {
         apiKey: 'AIzaSyBp7MQkZHx00lpCthWsTd_0eO5Hc54bIso',
