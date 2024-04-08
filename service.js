@@ -12,7 +12,7 @@ const urlB64ToUint8Array = base64String => {
 }
 // saveSubscription saves the subscription to the backend
 const saveSubscription = async subscription => {
-  const SERVER_URL = 'https://serviceworkersample.netlify.app/save-subscription'
+  const SERVER_URL = 'https://beautiful-faloodeh-89f52b.netlify.app/save-subscription'
   const response = await fetch(SERVER_URL, {
     method: 'post',
     headers: {
@@ -29,6 +29,7 @@ self.addEventListener('activate', async () => {
     const applicationServerKey = urlB64ToUint8Array(
       'BJPNR5HIy3FmJN1-5zc4XXvImuEEelaCgAHeS8ZV8scXnbcCStnCC0Beh4teH34kOSqnzSB3R-C3DRlJhcMLCoQ'
     )
+    console.log('app key ', applicationServerKey)
     const options = { applicationServerKey, userVisibleOnly: true }
     const subscription = await self.registration.pushManager.subscribe(options)
     const response = await saveSubscription(subscription)
