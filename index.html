@@ -33,16 +33,8 @@
 
         // Retrieve an instance of Firebase Messaging
         const messaging = firebase.messaging();
-
-        // Optional: Customize notification behavior
-        messaging.setBackgroundMessageHandler((payload) => {
-            const { title, body } = payload.notification;
-            const options = {
-                body,
-                icon: '/path/to/your/icon.png'
-            };
-            return self.registration.showNotification(title, options);
-        });
+// Retrieve an instance of Firebase Messaging
+        const messaging = firebase.messaging();
 
         // Handle incoming messages when app is in the foreground
         messaging.onMessage((payload) => {
