@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FCM Service Worker Example</title>
+    <title>Service Worker Example</title>
 </head>
 <body>
-    <!-- Your HTML content here -->
+    <h1>Service Worker Example</h1>
 
-    <!-- Include the Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-messaging.js"></script>
+    <!-- Include Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-messaging.js"></script>
 
-    <!-- Initialize Firebase -->
+    <!-- Initialize Firebase with your config -->
     <script>
-
-        const firebaseConfig = {
+        const config = {
             apiKey: 'AIzaSyBp7MQkZHx00lpCthWsTd_0eO5Hc54bIso',
             authDomain: 'chanda-calculator-c702c.firebaseapp.com',
             projectId: 'chanda-calculator-c702c',
@@ -24,36 +23,26 @@
             appId: '1086098697716'
         };
 
-
-        firebase.initializeApp(firebaseConfig);
-
-
- const vapidKey = 'AAAA_OCG7fQ:APA91bEIiceVg1P9RoME0BWqmUPRnaTSsEZIDSd_463JC22mFNZT8QAGMsJkfmVyjnWvSzSx6PWYxS1NLUanR-zU00SoRVdnpcLBx-yUuJVXdZChz7MsGXaVwYlF3D6RFm2BLiyQeHKk';
-
-
-// Retrieve an instance of Firebase Messaging
+        firebase.initializeApp(config);
         const messaging = firebase.messaging();
+    </script>
 
-        // Handle incoming messages when app is in the foreground
-        messaging.onMessage((payload) => {
-            console.log('Message received:', payload);
-            // Custom handling logic (e.g., display a notification)
-        });
+    <!-- Register the service worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/firebase-messaging-sw.js')
+                .then((registration) => {
+                    console.log('Service Worker registered');
+                })
+                .catch((error) => {
+                    console.error('Service Worker registration failed:', error);
+                });
 
-        // Handle clicks on notifications
-        self.addEventListener('notificationclick', (event) => {
-            const clickedNotification = event.notification;
-            // Custom handling logic (e.g., open a specific page)
-            clickedNotification.close();
-        });
-
-        // Handle token refresh
-        messaging.onTokenRefresh(() => {
-            messaging.getToken().then((refreshedToken) => {
-                console.log('Refreshed FCM token:', refreshedToken);
-                // Send the refreshed token to your server
+            // Trigger a one-off background sync (optional)
+            navigator.serviceWorker.ready.then((swRegistration) => {
+                return swRegistration.sync.register('myBackgroundSync');
             });
-        });
+        }
     </script>
 </body>
 </html>
