@@ -1,3 +1,6 @@
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore'; // Example: Firestore module
+// Add other necessary Firebase modules as needed
 
 
 const config = {
