@@ -13,7 +13,7 @@ const config = {
 };
 
 firebase.initializeApp(config);
-const messaging = firebase.messaging();
+const messaging = firebase.messaging(config);
 
 self.addEventListener('sync', (event) => {
     if (event.tag === 'myBackgroundSync') {
