@@ -10,4 +10,3 @@ self.addEventListener('activate', async () => {
   }
 })
 
-const subscription = await self.registration.pushManager.getSubscription()
