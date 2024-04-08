@@ -17,7 +17,7 @@ const saveSubscription = async subscription => {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',
-    },
+    }, 
     body: JSON.stringify(subscription),
   })
   return response.json()
