@@ -10,9 +10,10 @@ const urlB64ToUint8Array = base64String => {
   }
   return outputArray
 }
+console.log(outputArray)
 self.addEventListener('activate', async () => {
   // This will be called only once when the service worker is activated.    
-  console.log("SW act")
+  console.log("SW activated")
   try {
     const applicationServerKey = urlB64ToUint8Array(
       'AAAA_OCG7fQ:APA91bEIiceVg1P9RoME0BWqmUPRnaTSsEZIDSd_463JC22mFNZT8QAGMsJkfmVyjnWvSzSx6PWYxS1NLUanR-zU00SoRVdnpcLBx-yUuJVXdZChz7MsGXaVwYlF3D6RFm2BLiyQeHKk'
