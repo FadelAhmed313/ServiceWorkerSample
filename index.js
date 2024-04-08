@@ -21,8 +21,9 @@ const requestNotificationPermission = async () => {
         throw new Error('Permission not granted for Notification');
     }
 }
-const main = async () => { //notice I changed main to async function so that I can use await for registerServiceWorker
+const main = async () => {
     check();
     const swRegistration = await registerServiceWorker();
+    const permission =  await requestNotificationPermission();
 }
 main();
