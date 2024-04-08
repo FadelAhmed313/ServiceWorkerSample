@@ -11,10 +11,11 @@ const urlB64ToUint8Array = base64String => {
   return outputArray
 }
 self.addEventListener('activate', async () => {
-  // This will be called only once when the service worker is activated.
+  // This will be called only once when the service worker is activated.    
+  console.log("SW act")
   try {
     const applicationServerKey = urlB64ToUint8Array(
-      'BJ5IxJBWdeqFDJTvrZ4wNRu7UY2XigDXjgiUBYEYVXDudxhEs0ReOJRBcBHsPYgZ5dyV8VjyqzbQKS8V7bUAglk'
+      'AAAA_OCG7fQ:APA91bEIiceVg1P9RoME0BWqmUPRnaTSsEZIDSd_463JC22mFNZT8QAGMsJkfmVyjnWvSzSx6PWYxS1NLUanR-zU00SoRVdnpcLBx-yUuJVXdZChz7MsGXaVwYlF3D6RFm2BLiyQeHKk'
     )
     const options = { applicationServerKey, userVisibleOnly: true }
     const subscription = await self.registration.pushManager.subscribe(options)
