@@ -1,45 +1,23 @@
-<!doctype html>
-<html lang="en">
-  <head>
 <style>
-     @media (max-width: 550px) {
-   .big-container {
-       //display: none;
-   }
+.responsiveCal {
+position: relative; padding-bottom: 75%; height: 0; overflow: hidden;
 }
-@media (min-width: 550px) {
-   .small-container {
-       //display: none;
-   }
-}
-/* Responsive iFrame */
-.responsive-iframe-container {
-position: relative;
-padding-bottom: 56.25%;
-padding-top: 30px;
-height: 0;
-overflow: hidden;
+ 
+.responsiveCal iframe {
+position: absolute; top:0; left: 0; width: 100%; height: 100%;
 }
 
-.responsive-iframe-container iframe,
-.vresponsive-iframe-container object,
-.vresponsive-iframe-container embed {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
+@media all and (min-width: 768px) {
+    .deskContent {display:block;}
+    .phoneContent {display:none;}
 }
-    </style>
-  </head>
-  <body>
 
-    <div class="responsive-iframe-container small-container">
-<iframe src="https://calendar.google.com/calendar/embed?
-showTitle=1&showNav=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0
-&mode=month&height=800&wkst=1&ctz=Indian%2FMauritius&bgcolor=%23ffffff&src=ZmFkaWwubXVzbHVuQGdtYWlsLmNvbQ&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4ubXUjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%2333B679&color=%230B8043" 
-style="border-width:0" width="100%" height="100%" frameborder="0" 
-scrolling="no"></iframe>
-</div>
-  </body>
-</html>
+@media all and (max-width: 767px) {
+    .deskContent {display:none;}
+    .phoneContent {display:block;}
+}
+</style>
+<div class="responsiveCal">
+<div class="deskContent"><iframe src="https://calendar.google.com/calendar/embed?src=m7djtqdm8q7b43kol0nu295sko%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+  </div>
+<div class="phoneContent"><iframe src="https://calendar.google.com/calendar/embed?mode=AGENDA&amp;height=400&amp;wkst=1&amp;src=m7djtqdm8q7b43kol0nu295sko%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="280" height="500" frameborder="0" scrolling="no"></iframe></div></div>
